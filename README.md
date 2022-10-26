@@ -5,18 +5,18 @@ This is the course project for CMP 220: Programming 2 that requires an implement
 The purpose of this project is to build skills in implementing a solution using C++ object-oriented programming paradigm.
 ## System Overview:
 For this project, you are to design and implement a pizza ordering system given the requirements below. You must use all the concepts discussed in the course. Note, the system shall save all data in files between different runs. 
-• Must create classes
-• Must have inheritance
-• Must use polymorphism
-• Operator overloading
-• Pointers and File I/O
-• Vectors
-• Use of rule of 3
-• Exception handling
-• Enum Classes
+* Must create classes
+* Must have inheritance
+* Must use polymorphism
+* Operator overloading
+* Pointers and File I/O
+* Vectors
+* Use of rule of 3
+* Exception handling
+* Enum Classes
 ## Pizza Store System Requirements:
 There are six types of users that should be able to use the system. The system will identify the user role based on a single login screen. 
-- [**Customers**](#1-customer-will-require-the-following-functionalities) are users who visit the system and can create orders by customizing pizzas, selecting 
+- [**Customers**](#1-customer) are users who visit the system and can create orders by customizing pizzas, selecting 
 products, and entering customer details. Customers can create accounts and login into the system to make pizza orders. 
 - [**General Staff**](#2-general-staff) are the role of users that work with the ordering system on a daily basis. Each general staff has his/her own accounts. They are the ones responsible for processing orders. 
 - [**Pizza Chef**](#3-the-pizza-chef) a role of users that work in the kitchen in the pizza store. The pizza chef views the order and makes the requested pizza according to the requirements presented below. 
