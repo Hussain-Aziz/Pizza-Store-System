@@ -33,7 +33,7 @@ void Manager::displayMenu()
 		{
 		case 1:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllToppings().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllToppings().size(); i++)
 			{
 				cout << Company::getInstance()->getAllToppings()[i];
 			}
@@ -97,7 +97,7 @@ void Manager::displayMenu()
 		break;
 		case 5:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllPizzas().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllPizzas().size(); i++)
 			{
 				Company::getInstance()->getAllPizzas()[i].print();
 			}
@@ -162,7 +162,7 @@ void Manager::displayMenu()
 		break;
 		case 9:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllNonPizzaItems().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllNonPizzaItems().size(); i++)
 			{
 				Company::getInstance()->getAllNonPizzaItems()[i].print();
 			}
@@ -227,7 +227,7 @@ void Manager::displayMenu()
 		break;
 		case 13:
 		{
-			for (int i = 0; i < store->getStoreStaff().size(); i++)
+			for (size_t i = 0; i < store->getStoreStaff().size(); i++)
 			{
 				store->getStoreStaff()[i]->print();
 			}

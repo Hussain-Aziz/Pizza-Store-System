@@ -10,7 +10,7 @@ public:
 	template<class T>
 	static int searchVector(vector<T> t, string id)
 	{
-		for (int i = 0; i < t.size(); i++)
+		for (size_t i = 0; i < t.size(); i++)
 		{
 			if (t[i] == id) return i;
 		}
@@ -19,7 +19,7 @@ public:
 	template<class T>
 	static int searchVector(vector<T*> t, string id)
 	{
-		for (int i = 0; i < t.size(); i++)
+		for (size_t i = 0; i < t.size(); i++)
 		{
 			if (t[i] == id) return i;
 		}
@@ -28,7 +28,7 @@ public:
 	template<class T>
 	static int searchVector(vector<T> t, int id)
 	{
-		for (int i = 0; i < t.size(); i++)
+		for (size_t i = 0; i < t.size(); i++)
 		{
 			if (t[i] == id) return i;
 		}
@@ -37,7 +37,7 @@ public:
 	template<class T>
 	static int searchVector(vector<T*> t, int id)
 	{
-		for (int i = 0; i < t.size(); i++)
+		for (size_t i = 0; i < t.size(); i++)
 		{
 			if (t[i] == id) return i;
 		}

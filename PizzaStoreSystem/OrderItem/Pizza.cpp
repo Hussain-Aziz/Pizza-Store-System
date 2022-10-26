@@ -63,7 +63,7 @@ bool Pizza::removeToppings(Toppings topping)
 
 int Pizza::searchTopping(Toppings topping)
 {
-	for (int i = 0; i < selectedToppings.size(); i++)
+	for (size_t i = 0; i < selectedToppings.size(); i++)
 	{
 		if (topping == selectedToppings[i]) return i;
 	}
@@ -97,7 +97,7 @@ void Pizza::print()
 	OrderItem::print();
 	cout << "Crust: " << getTextFromCrust(selectedCrust) << endl;
 	cout << "Toppings: " << endl;
-	for (int i = 0; i < selectedToppings.size(); i++)
+	for (size_t i = 0; i < selectedToppings.size(); i++)
 	{
 		cout << "\t" << selectedToppings[i];
 	}
@@ -115,7 +115,7 @@ void Pizza::saveToFile(ofstream& ofile)
 
 	//output toppings name
 	ofile << selectedToppings.size() << " ";
-	for (int i = 0; i < selectedToppings.size(); i++)
+	for (size_t i = 0; i < selectedToppings.size(); i++)
 	{
 		selectedToppings[i].saveToFile(ofile, false);
 
@@ -128,19 +128,19 @@ void Pizza::saveToFile(ofstream& ofile)
 void Pizza::readFromFile(ifstream& ifile)
 {
 	string crust;
-	int numToppings;
+	size_t numToppings;
 	OrderItem::readFromFile(ifile);
 	ifile >> crust >> numToppings;
 	selectedCrust = getCrustFromText(crust);
 
-	for (int i = 0; i < numToppings; i++)
+	for (size_t i = 0; i < numToppings; i++)
 	{
 		Toppings newTopping;
 		newTopping.readFromFile(ifile);
 		selectedToppings.push_back(newTopping);
 	}
 }
-#pragma region Toppings
+
 ostream& operator<<(ostream& out, const Toppings& topping)
 {
 	out << topping.toppingId << " " << topping.name << "\t" << topping.price << " Dhs" << endl;
@@ -190,9 +190,6 @@ string Toppings::getName() { return name; }
 
 void Toppings::setName(string newName) { name = newName; }
 
-#pragma endregion
-
-#pragma region Crust
 Crusts getCrustFromText(string crust)
 {
 	//cant switch case string :(
@@ -272,7 +269,7 @@ void CreatePizza(Pizza& newPizza, bool askForName)
 void Pizza::EditToppings()
 {
 	cout << "Choose from available toppings" << endl;
-	for (int i = 0; i < Company::getInstance()->getAllToppings().size(); i++)
+	for (size_t i = 0; i < Company::getInstance()->getAllToppings().size(); i++)
 	{
 		cout << Company::getInstance()->getAllToppings()[i];
 	}

@@ -17,7 +17,7 @@ Company::Company()
 	stores >> numstores;
 
 	allStores.resize(numstores);
-	for (int i = 0; i < allStores.size(); i++)
+	for (size_t i = 0; i < allStores.size(); i++)
 	{
 		string id;
 		stores >> id;
@@ -39,14 +39,14 @@ void Company::Save()
 {
 	ofstream stores("Persistent Data/stores.txt");
 	stores << allStores.size() << endl;
-	for (int i = 0; i < allStores.size(); i++)
+	for (size_t i = 0; i < allStores.size(); i++)
 	{
 		stores << allStores[i].getId() << endl;
 	}
 	stores.flush();
 	stores.close();
 
-	for (int i = 0; i < allStores.size(); i++)
+	for (size_t i = 0; i < allStores.size(); i++)
 	{
 		allStores[i].saveToFile();
 	}

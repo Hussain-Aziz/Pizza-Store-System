@@ -6,6 +6,7 @@ class Manager :public Account
 public:
 	Manager();
 	Manager(string accountid, string storeId, string username, string password);
+	virtual ~Manager(){}
 
 	void displayMenu() override;
 	Account* duplicate() override;

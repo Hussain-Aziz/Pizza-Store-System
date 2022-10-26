@@ -34,6 +34,7 @@ protected:
 public:
 	Account();
 	Account(string accountid, string storeId, string username, string password, AccountType currentAccountType);
+	virtual ~Account(){}
 
 	//getters
 	AccountType getAccountType();

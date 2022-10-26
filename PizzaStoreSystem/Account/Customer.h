@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CUSTOMER
+#define CUSTOMER
 #include "Account.h"
 class Customer: public Account
 {
@@ -8,6 +9,7 @@ private:
 public:
 	Customer();
 	Customer(string accountid, string storeId, string username, string password, string fname, string lname, string phone, string address, string email, int orderId);
+	virtual ~Customer(){}
 
 	Customer* duplicate()override;
 	void print() override;
@@ -23,5 +25,4 @@ public:
 	void setEmail(string nemail);
 	void setOrderId(int id);
 };
-
-
+#endif

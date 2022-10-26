@@ -1,4 +1,5 @@
-#pragma once
+#ifndef STORE
+#define STORE
 #include"../Account/Account.h"
 #include"../Order/Order.h"
 class Store
@@ -38,4 +39,4 @@ public:
 
 	void output();
 };
-
+#endif

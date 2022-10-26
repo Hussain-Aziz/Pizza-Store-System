@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ORDERITEM
+#define ORDERITEM
 #include<iostream>
 #include<fstream>
 #include<vector>
@@ -16,6 +17,7 @@ public:
 	OrderItem(string id, string name);
 	OrderItem(string id, double price);
 	OrderItem(string id, string name, double price);
+	virtual ~OrderItem() {}
 
 	virtual void print();
 	virtual OrderItem* duplicate(string newid) = 0;
@@ -35,3 +37,4 @@ public:
 	bool operator==(string id);
 	friend bool operator==(OrderItem* item, string id);
 };
+#endif

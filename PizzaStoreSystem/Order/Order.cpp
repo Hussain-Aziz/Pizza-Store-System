@@ -28,7 +28,7 @@ Order::Order(const Order& order)
 	currentProgress = order.currentProgress;
 	price = order.price;
 
-	for (int i = 0; i < order.orderContents.size(); i++)
+	for (size_t i = 0; i < order.orderContents.size(); i++)
 	{
 		orderContents.push_back(order.orderContents[i]->duplicate(order.orderContents[i]->getId()));
 	}
@@ -36,7 +36,7 @@ Order::Order(const Order& order)
 
 void Order::operator=(const Order& order)
 {
-	for (int i = 0; i < orderContents.size(); i++)
+	for (size_t i = 0; i < orderContents.size(); i++)
 	{
 		delete orderContents[i];
 	}
@@ -46,7 +46,7 @@ void Order::operator=(const Order& order)
 	customerId = order.customerId;
 	currentProgress = order.currentProgress;
 
-	for (int i = 0; i < order.orderContents.size(); i++)
+	for (size_t i = 0; i < order.orderContents.size(); i++)
 	{
 		orderContents.push_back(order.orderContents[i]->duplicate(order.orderContents[i]->getId()));
 	}
@@ -55,7 +55,7 @@ void Order::operator=(const Order& order)
 
 Order::~Order()
 {
-	for (int i = 0; i < orderContents.size(); i++)
+	for (size_t i = 0; i < orderContents.size(); i++)
 	{
 		delete orderContents[i];
 	}
@@ -66,7 +66,7 @@ void Order::viewOrderContents()
 	cout << "Displaying Order " << id << " For " << customerId << endl;
 	cout << "The price of the order is: " << price << endl;
 	cout << "Progress is: " << getTextFromOrderProcess(currentProgress) << endl;
-	for (int i = 0; i < orderContents.size(); i++)
+	for (size_t i = 0; i < orderContents.size(); i++)
 	{
 		orderContents[i]->print();
 	}
@@ -74,7 +74,7 @@ void Order::viewOrderContents()
 }
 void Order::viewPizzasOrderContents()
 {
-	for (int i = 0; i < orderContents.size(); i++)
+	for (size_t i = 0; i < orderContents.size(); i++)
 	{
 		if (dynamic_cast<Pizza*>(orderContents[i]) != nullptr)
 			orderContents[i]->print();
@@ -113,7 +113,7 @@ void Order::removeFromOrderContent(string OrderItemid)
 void Order::saveToFile(ofstream& ofile)
 {
 	ofile << "START_OF_ORDER" << " " << id << " " << customerId << " " << getTextFromOrderProcess(currentProgress) << " " << price << endl;
-	for (int i = 0; i < orderContents.size(); i++)
+	for (size_t i = 0; i < orderContents.size(); i++)
 	{
 		orderContents[i]->saveToFile(ofile);
 	}

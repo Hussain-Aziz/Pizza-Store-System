@@ -10,10 +10,10 @@ void Store::ReadToVector(AccountType type)
 	{
 		throw FileNotOpened("Persistent Data/" + id + "/" + getTextFromAccountType(type) + ".txt");
 	}
-	int numItems;
+	size_t numItems;
 	ifile >> numItems;
 
-	for(int i = 0; i < numItems; i++)
+	for(size_t i = 0; i < numItems; i++)
 	{
 		Account* newAcc;
 		switch (type)
@@ -61,7 +61,7 @@ Store::Store(const Store& s)
 	id = s.id;
 	currentOrders = s.currentOrders;
 
-	for (int i = 0; i < s.StoreStaff.size(); i++)
+	for (size_t i = 0; i < s.StoreStaff.size(); i++)
 	{
 		StoreStaff.push_back(s.StoreStaff[i]->duplicate());
 	}
@@ -69,7 +69,7 @@ Store::Store(const Store& s)
 
 Store::~Store()
 {
-	for (int i = 0; i < StoreStaff.size(); i++)
+	for (size_t i = 0; i < StoreStaff.size(); i++)
 	{
 		delete StoreStaff[i];
 	}
@@ -78,7 +78,7 @@ Store::~Store()
 
 void Store::operator=(const Store& s)
 {
-	for (int i = 0; i < StoreStaff.size(); i++)
+	for (size_t i = 0; i < StoreStaff.size(); i++)
 	{
 		delete StoreStaff[i];
 	}
@@ -86,7 +86,7 @@ void Store::operator=(const Store& s)
 	id = s.id;
 	currentOrders = s.currentOrders;
 
-	for (int i = 0; i < s.StoreStaff.size(); i++)
+	for (size_t i = 0; i < s.StoreStaff.size(); i++)
 	{
 		StoreStaff.push_back(s.StoreStaff[i]->duplicate());
 	}
@@ -104,7 +104,7 @@ void Store::InitStore()
 	int numOrders;
 	ordersFile >> numOrders;
 	currentOrders.resize(numOrders);
-	for (int i = 0; i < currentOrders.size(); i++)
+	for (size_t i = 0; i < currentOrders.size(); i++)
 	{
 		currentOrders[i].readFromFile(ordersFile);
 	}
@@ -137,7 +137,7 @@ void Store::saveToFile()
 
 	ofstream ordersFile("Persistent Data/" + id + "/orders.txt");
 	ordersFile << currentOrders.size() << endl;
-	for (int i = 0; i < currentOrders.size(); i++)
+	for (size_t i = 0; i < currentOrders.size(); i++)
 	{
 		currentOrders[i].saveToFile(ordersFile);
 	}
@@ -158,7 +158,7 @@ void Store::saveToFile()
 
 	int staffCount = 0, chefCount = 0, customerCount = 0, deliveryDriverCount = 0;
 
-	for (int i = 0; i < StoreStaff.size(); i++)
+	for (size_t i = 0; i < StoreStaff.size(); i++)
 	{
 		switch (StoreStaff[i]->getAccountType())
 		{
@@ -182,7 +182,7 @@ void Store::saveToFile()
 	chef << chefCount << endl;
 	customer << customerCount << endl;
 	deliveryDriver << deliveryDriverCount << endl;
-	for (int i = 0; i < StoreStaff.size(); i++)
+	for (size_t i = 0; i < StoreStaff.size(); i++)
 	{
 		switch (StoreStaff[i]->getAccountType())
 		{
@@ -216,7 +216,7 @@ void Store::saveToFile()
 
 void Store::displayOrders(OrderProcess progress)
 {
-	for (int i = 0; i < currentOrders.size(); i++)
+	for (size_t i = 0; i < currentOrders.size(); i++)
 	{
 		if (progress == currentOrders[i].getOrderProcess())
 			currentOrders[i].viewOrderContents();
@@ -225,7 +225,7 @@ void Store::displayOrders(OrderProcess progress)
 
 void Store::displayAllOrders()
 {
-	for (int i = 0; i < currentOrders.size(); i++)
+	for (size_t i = 0; i < currentOrders.size(); i++)
 	{
 		currentOrders[i].viewOrderContents();
 	}
@@ -239,14 +239,14 @@ void Store::AddNewOrder(Order& o)
 
 void Store::RemoveOrder(int id)
 {
-	if (id < 0 || id > currentOrders.size() - 1)
+	if (id < 0 || id > (int) currentOrders.size() - 1)
 	{
 		cout << "Invalid index to remove order" << endl;
 	}
 	else
 	{
 		currentOrders.erase(currentOrders.begin() + id);
-		for (int i = 0; i < currentOrders.size(); i++)
+		for (size_t i = 0; i < currentOrders.size(); i++)
 		{
 			currentOrders[i].setId(i + 1);
 		}

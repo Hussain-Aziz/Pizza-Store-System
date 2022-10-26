@@ -39,7 +39,7 @@ void Staff::displayMenu()
 		break;
 		case 3:
 		{
-			for (int i = 0; i < store->getStoreStaff().size(); i++)
+			for (size_t i = 0; i < store->getStoreStaff().size(); i++)
 			{
 				if (store->getStoreStaff()[i]->getAccountType() == AccountType::Customer) 
 					store->getStoreStaff()[i]->print();
@@ -309,7 +309,7 @@ void Staff::displayMenu()
 			}
 			cout << "List of delivery Drivers Available: " << endl;
 			int count = 0;
-			for (int i = 0; i < store->getStoreStaff().size(); i++)
+			for (size_t i = 0; i < store->getStoreStaff().size(); i++)
 			{
 				if (store->getStoreStaff()[i]->getAccountType() == AccountType::DeliveryDriver)
 				{
@@ -392,7 +392,7 @@ void Staff::displayMenu()
 		break;
 		case 13:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllPizzas().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllPizzas().size(); i++)
 			{
 				Company::getInstance()->getAllPizzas()[i].print();
 			}
@@ -400,7 +400,7 @@ void Staff::displayMenu()
 		break;
 		case 14:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllToppings().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllToppings().size(); i++)
 			{
 				cout << Company::getInstance()->getAllToppings()[i];
 			}
@@ -408,7 +408,7 @@ void Staff::displayMenu()
 		break;
 		case 15:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllNonPizzaItems().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllNonPizzaItems().size(); i++)
 			{
 				Company::getInstance()->getAllNonPizzaItems()[i].print();
 			}

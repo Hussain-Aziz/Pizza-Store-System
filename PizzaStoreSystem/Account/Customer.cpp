@@ -62,7 +62,7 @@ void Customer::displayMenu()
 		{
 		case 1:
 		{
-			if (orderId > -1)
+			if (orderId >= 0)
 			{
 				if (store->getCurrentOrders()[orderId].getOrderProcess() < OrderProcess::Delivered)
 				{
@@ -82,7 +82,7 @@ void Customer::displayMenu()
 				case 1:
 				{
 					cout << "Choose from the following list:" << endl;
-					for (int i = 0; i < Company::getInstance()->getAllPizzas().size(); i++)
+					for (size_t i = 0; i < Company::getInstance()->getAllPizzas().size(); i++)
 					{
 						Company::getInstance()->getAllPizzas()[i].print();
 					}
@@ -126,7 +126,7 @@ void Customer::displayMenu()
 						break;
 					}
 					cout << "Choose from the following list:" << endl;
-					for (int i = 0; i < Company::getInstance()->getAllNonPizzaItems().size(); i++)
+					for (size_t i = 0; i < Company::getInstance()->getAllNonPizzaItems().size(); i++)
 					{
 						Company::getInstance()->getAllNonPizzaItems()[i].print();
 					}
@@ -225,7 +225,7 @@ void Customer::displayMenu()
 		break;
 		case 2:
 		{
-			if (orderId < 0 || orderId > store->getCurrentOrders().size() + 1)
+			if (orderId < 0 || orderId > (int) store->getCurrentOrders().size() + 1)
 			{
 				cout << "You dont have a previous order" << endl;
 			}

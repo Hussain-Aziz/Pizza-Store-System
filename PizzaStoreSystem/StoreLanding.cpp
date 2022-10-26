@@ -19,11 +19,11 @@ int main()
 		CurrentUser = new Customer();
 
 		cout << "Please choose the store nearest to you: " << endl;
-		for (int i = 0; i < Company::getInstance()->getAllStores().size(); i++)
+		for (size_t i = 0; i < Company::getInstance()->getAllStores().size(); i++)
 		{
 			cout << i << ". " << Company::getInstance()->getAllStores()[i].getName() << endl;
 		}
-		int storeChoice;
+		size_t storeChoice;
 		cin >> storeChoice;
 
 		if (storeChoice < 0 || storeChoice > Company::getInstance()->getAllStores().size() - 1)
@@ -50,7 +50,7 @@ int main()
 		bool found = false;
 		
 		//search Admins
-		for (int i = 0; i < Company::getInstance()->getAllAdmins().size() && !found; i++)
+		for (size_t i = 0; i < Company::getInstance()->getAllAdmins().size() && !found; i++)
 		{
 			if (Company::getInstance()->getAllAdmins()[i] == accountLogin)
 			{
@@ -59,7 +59,7 @@ int main()
 			}
 		}
 		//search Managers
-		for (int i = 0; i < Company::getInstance()->getAllManagers().size() && !found; i++)
+		for (size_t i = 0; i < Company::getInstance()->getAllManagers().size() && !found; i++)
 		{
 			if (Company::getInstance()->getAllManagers()[i] == accountLogin)
 			{
@@ -68,9 +68,9 @@ int main()
 			}
 		}
 		//search others
-		for (int i = 0; i < Company::getInstance()->getAllStores().size() && !found; i++)
+		for (size_t i = 0; i < Company::getInstance()->getAllStores().size() && !found; i++)
 		{
-			for (int j = 0; j < Company::getInstance()->getAllStores()[i].getStoreStaff().size() && !found; j++)
+			for (size_t j = 0; j < Company::getInstance()->getAllStores()[i].getStoreStaff().size() && !found; j++)
 			{
 				if (Company::getInstance()->getAllStores()[i].getStoreStaff()[j] == accountLogin)
 				{

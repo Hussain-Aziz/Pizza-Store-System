@@ -57,7 +57,7 @@ void Company::standardReadFromFile(vector<T> &t, string fileName, bool extraChar
 	string dummy;
 
 	t.resize(numT);
-	for (int i = 0; i < t.size(); i++)
+	for (size_t i = 0; i < t.size(); i++)
 	{
 		if (extraChar) ifile >> dummy;
 		t[i].readFromFile(ifile);
@@ -70,7 +70,7 @@ void Company::standardSaveToFile(vector<T> &t, string fileName)
 {
 	ofstream ofile("Persistent Data/" + fileName + ".txt");
 	ofile << t.size() << endl;
-	for (int i = 0; i < t.size(); i++)
+	for (size_t i = 0; i < t.size(); i++)
 	{
 		t[i].saveToFile(ofile);
 	}

@@ -24,7 +24,7 @@ void Admin::displayMenu()
 		//List stores
 		case 1:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllStores().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllStores().size(); i++)
 			{
 				Company::getInstance()->getAllStores()[i].output();
 			}
@@ -101,7 +101,7 @@ void Admin::displayMenu()
 		//print all managers
 		case 5:
 		{
-			for (int i = 0; i < Company::getInstance()->getAllManagers().size(); i++)
+			for (size_t i = 0; i < Company::getInstance()->getAllManagers().size(); i++)
 			{
 				Company::getInstance()->getAllManagers()[i].print();
 			}

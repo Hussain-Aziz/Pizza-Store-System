@@ -18,6 +18,7 @@ private:
 public:
 	DeliveryDriver();
 	DeliveryDriver(string accountid, string storeId, string username, string password,DriverStatus status, int assignedOrderId);
+	virtual ~DeliveryDriver(){}
 
 	void displayMenu();
 	DeliveryDriver* duplicate();

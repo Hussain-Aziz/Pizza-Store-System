@@ -1,0 +1,8 @@
+Type: 			username 	password
+
+Admin: 			admin 		admin
+Manager: 		manager1 	manager1
+DeliveryDriver:	dd1 		dd1
+Chef:			chef1		chef1
+Staff: 			staff1		staff1
+Customer:		c1			c1

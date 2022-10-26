@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PIZZA
+#define PIZZA
 #include"OrderItem.h"
 class Toppings
 {
@@ -49,6 +50,7 @@ public:
 	Pizza(string id, string name, double basePrice);
 	Pizza(string id, double basePrice);
 	Pizza(string id, string name, double price, vector<Toppings> selectedToppings, Crusts selectedCrust);
+	virtual ~Pizza(){}
 
 	bool addToppings(Toppings topping);
 	bool removeToppings(Toppings topping);
@@ -69,4 +71,4 @@ public:
 
 	void EditToppings();
 };
-
+#endif
